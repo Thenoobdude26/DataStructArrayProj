@@ -24,7 +24,11 @@ bool    loadCSV(const std::string& filename);
 void    printSeatingChart();//xuan min
 void    printPassengerlist();// xuan min
 
-bool    reserveSeat(const std::string&)
+bool    reserveSeat(const std::string& id, const std ::string& name, 
+                    const std::string& cls, int& outRow, int& outCol);
+bool    cancelBooking(const std::string& id);
+
+bool    
 
 
 void initPlane(){
