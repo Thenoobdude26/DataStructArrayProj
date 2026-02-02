@@ -29,8 +29,8 @@ int main() {
         cin >> choice;
         cin.ignore();
 
-        if (choice == 1)    printSeatingChart(); //make print seating chart (Xuan min)
-        else if (choice == 2)   printPassengerlist();//make print passenger list (xuam min)
+        if (choice == 1)    printSeatingChart(); //make print seating chart (Xuan min, it's in seats.h)
+        else if (choice == 2)   printPassengerlist();//make print passenger list (xuam min, same here)
         else if (choice == 3) {
             //read id,name,and class
             Reserveseat();//make reserveSeat function(tatenda)
