@@ -31,15 +31,9 @@ int main() {
 
         if (choice == 1)    printSeatingChart(); //make print seating chart (Xuan min, it's in seats.h)
         else if (choice == 2)   printPassengerlist();//make print passenger list (xuam min, same here)
-        else if (choice == 3) {
-            //read id,name,and class
-            reserveSeat();//make reserveSeat function(tatenda)
-            }
+        else if (choice == 3) reserveSeat();
         else if (choice == 4)   cancelBooking();//make cancel booking function(tatenda)
-        else if (choice == 5) {
-            //read ID
-            lookuppass();// Make look up passenger and print result(tatenda)
-        }
+        else if (choice == 5) findPassenger();
     } while (choice != 0);
     cout << "Goodbye, have a day!\n";
     return 0;
