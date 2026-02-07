@@ -12,7 +12,7 @@ int main() {
     initPlane();
 
     // Try to load real data (change path if needed)
-    string csvPath = "flight_passenger_data.csv";   // fix path if it's in subfolder
+    string csvPath = "data/flight_passenger_data.csv";   // fix path if it's in subfolder
     if (loadCSV(csvPath)) {
         cout << "Initial bookings loaded.\n";
     } else {
