@@ -5,36 +5,60 @@
 using namespace std;
 
 int main() {
+    cout << "Flight Reservation System – Array Version\n";
+    cout << "----------------------------------------\n\n";
 
-    //Initializes the plane by clearing all the seats
+    // Tatenda: initialize plane
     initPlane();
 
-    //Load data from the CSV File
-    bool loaded = loadFromCSV("data/flight_passenger_data.csv.csv");
-    if (loaded) {
-        cout << "Loaded" << passengerCount << " passengers\n";
+    // Try to load real data (change path if needed)
+    string csvPath = "flight_passenger_data.csv";   // fix path if it's in subfolder
+    if (loadCSV(csvPath)) {
+        cout << "Initial bookings loaded.\n";
+    } else {
+        cout << "CSV not found – you can still test manually.\n";
     }
 
-    //Main interactive menu loop
     int choice;
     do {
-        cout << "\n1. Show Chart\n";
-        cout << "2. Show manifest\n";
-        cout << "3. Reserve seat\n";
-        cout << "4. Cancel booking\n";
-        cout << "5. Lookup passenger\n";
-        cout << "0. Exit";
-        cout << ". . . ";
-
+        cout << "\nMenu:\n";
+        cout << "  1. Show seating chart             (Xuan Min)\n";
+        cout << "  2. Show passenger manifest        (Xuan Min)\n";
+        cout << "  3. Reserve a seat                 (Tatenda)\n";
+        cout << "  4. Cancel a booking               (Tatenda)\n";
+        cout << "  5. Lookup passenger by ID         (Xuan Min)\n";
+        cout << "  0. Exit\n";
+        cout << "Choice → ";
         cin >> choice;
-        cin.ignore();
+        cin.ignore();  // important after cin >>
 
-        if (choice == 1)    printSeatingChart(); //make print seating chart (Xuan min, it's in seats.h)
-        else if (choice == 2)   printPassengerlist();//make print passenger list (xuam min, same here)
-        else if (choice == 3) reserveSeat();
-        else if (choice == 4)   cancelBooking();//make cancel booking function(tatenda)
-        else if (choice == 5) findPassenger();
+        if (choice == 1) {
+            printSeatingChart();
+        }
+        else if (choice == 2) {
+            printPassengerManifest();
+        }
+        else if (choice == 3) {
+            string id, name, cls;
+            cout << "Passenger ID: ";   getline(cin, id);
+            cout << "Name: ";           getline(cin, name);
+            cout << "Class (Economy/Business/First): "; getline(cin, cls);
+            reserveSeat(id, name, cls);
+        }
+        else if (choice == 4) {
+            string id;
+            cout << "Enter Passenger ID to cancel: ";
+            getline(cin, id);
+            cancelBooking(id);
+        }
+        else if (choice == 5) {
+            searchPassengerID();
+        }
+        else if (choice != 0) {
+            cout << "Invalid choice.\n";
+        }
     } while (choice != 0);
-    cout << "Goodbye, have a day!\n";
+
+    cout << "\nGoodbye.\n";
     return 0;
 }

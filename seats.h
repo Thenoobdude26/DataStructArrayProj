@@ -2,44 +2,43 @@
 #define SEATS_H
 
 #include <string>
-#include<iostream> //maybe iomanip
+#include <iostream>
+#include <iomanip>      // for nicer table printing (setw)
+#include <fstream>      // for reading CSV
+#include <sstream>      // for parsing CSV lines
 
-const int MAX_ROWS = 50; // well. . . max rows
-const int MAX_COLS = 6; //A B C D E F
+// ────────────────────────────────────────────────
+// CONSTANTS (used by both team members)
+// ────────────────────────────────────────────────
+const int MAX_ROWS = 50;
+const int MAX_COLS = 6;
 
-//STEAT STRUCTURE WITH DA FOKEN DEFAULT VALUES
-struct seats
-{
-    /* data */
+// ────────────────────────────────────────────────
+// DATA STRUCTURE (used by both team members)
+// ────────────────────────────────────────────────
+struct Seat {
     std::string passengerID = "";
     std::string name        = "";
-    std::string classType   = ""; //ECONOMY-BUSINESS-FIRST
+    std::string classType   = "";   // e.g. "Economy", "Business", "First"
     bool        occupied    = false;
 };
 
-extern seats plane[MAX_ROWS][MAX_COLS];
+extern Seat plane[MAX_ROWS][MAX_COLS];
 
-extern int passengerCount;
-void    initPlane();
+// ────────────────────────────────────────────────
+// FUNCTION DECLARATIONS
+// ────────────────────────────────────────────────
 
-bool    loadCSV(const std::string& filename);
+// Tatenda – Initialization & core booking/cancel logic
+void initPlane();
+bool reserveSeat(std::string id, std::string name, std::string cls);
+bool cancelBooking(std::string id);
 
-void    printSeatingChart();//xuan min
-void    printPassengerlist();// xuan min
+// Xuan Min – Display & search / report functions
+void printSeatingChart();
+void printPassengerManifest();
+void searchPassengerID();
 
-bool    reserveSeat(const std::string& id, const std ::string& name, 
-                    const std::string& cls, int& outRow, int& outCol);
-bool    cancelBooking(const std::string& id);
-
-bool    findPassenger(const std::string& id,Passenger& result);
+bool loadCSV(const std::string& filename);  // shared, but can be called from main
 
 #endif
-
-
-
-void initPlane(){
-    for(int r = 0; r < MAX_ROWS; r++)
-        for(int c = 0; c < MAX_COLS; c++)
-            plane[r][c] = seats();
-    }
-}
