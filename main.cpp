@@ -22,11 +22,11 @@ int main() {
     int choice;
     do {
         cout << "\nMenu:\n";
-        cout << "  1. Show seating chart             (Xuan Min)\n";
-        cout << "  2. Show passenger manifest        (Xuan Min)\n";
-        cout << "  3. Reserve a seat                 (Tatenda)\n";
-        cout << "  4. Cancel a booking               (Tatenda)\n";
-        cout << "  5. Lookup passenger by ID         (Xuan Min)\n";
+        cout << "  1. Show seating chart             \n"; //(Xuan Min)
+        cout << "  2. Show passenger manifest        \n";//(Xuan Min)
+        cout << "  3. Reserve a seat                 \n";//(Tatenda)
+        cout << "  4. Cancel a booking               \n";//(Tatenda)
+        cout << "  5. Lookup passenger by ID         \n";//(Xuan Min)
         cout << "  0. Exit\n";
         cout << "Choice → ";
         cin >> choice;

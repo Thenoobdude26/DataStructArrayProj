@@ -15,7 +15,7 @@ void initPlane() {
             plane[r][c].occupied    = false;
         }
     }
-    std::cout << "[Tatenda] Plane initialized – all seats cleared.\n";
+    std::cout << "Plane initialized – all seats cleared.\n";
 }
 
 // ────────────────────────────────────────────────
@@ -32,14 +32,14 @@ bool reserveSeat(std::string id, std::string name, std::string cls) {
                 plane[r][c].occupied    = true;
 
                 char letter = 'A' + c;
-                std::cout << "[Tatenda] Reserved seat " << (r+1) << letter
+                std::cout << "Reserved seat " << (r+1) << letter
                           << " for " << name << " (" << id << ")\n";
                 return true;
             }
         }
     }
 
-    std::cout << "[Tatenda] No available seats left.\n";
+    std::cout << "No available seats left.\n";
     return false;
 }
 
@@ -55,13 +55,13 @@ bool cancelBooking(std::string id) {
                 plane[r][c].classType   = "";
                 plane[r][c].occupied    = false;
 
-                std::cout << "[Tatenda] Cancelled booking for ID: " << id << "\n";
+                std::cout << "Cancelled booking for ID: " << id << "\n";
                 return true;
             }
         }
     }
 
-    std::cout << "[Tatenda] No passenger found with ID: " << id << "\n";
+    std::cout << "No passenger found with ID: " << id << "\n";
     return false;
 }
 
@@ -69,7 +69,7 @@ bool cancelBooking(std::string id) {
 // Xuan Min – Seat Report / Seating Chart
 // ────────────────────────────────────────────────
 void printSeatingChart() {
-    std::cout << "\n[Xuan Min] Seating Chart   (* = empty,  X = occupied)\n";
+    std::cout << "\nSeating Chart   (* = empty,  X = occupied)\n";
     std::cout << "      A   B   C     D   E   F\n";
 
     for (int r = 0; r < MAX_ROWS; r++) {
@@ -87,7 +87,7 @@ void printSeatingChart() {
 // Xuan Min – Manifest & Passenger List Report
 // ────────────────────────────────────────────────
 void printPassengerManifest() {
-    std::cout << "\n[Xuan Min] Passenger Manifest\n";
+    std::cout << "\nPassenger Manifest\n";
     std::cout << std::left
               << std::setw(12) << "ID"
               << std::setw(25) << "Name"
@@ -132,7 +132,7 @@ void searchPassengerID() {
             if (plane[r][c].occupied && plane[r][c].passengerID == searchID) {
                 char seatLetter = 'A' + c;
 
-                std::cout << "\n[Xuan Min] Passenger Found!\n";
+                std::cout << "\nPassenger Found!\n";
                 std::cout << "  ID     : " << plane[r][c].passengerID << "\n";
                 std::cout << "  Name   : " << plane[r][c].name << "\n";
                 std::cout << "  Class  : " << plane[r][c].classType << "\n";

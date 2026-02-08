@@ -8,18 +8,18 @@
 #include <sstream>      // for parsing CSV lines
 
 // ────────────────────────────────────────────────
-// CONSTANTS (used by both team members)
+// CONSTANTS (used by both of us)
 // ────────────────────────────────────────────────
-const int MAX_ROWS = 50;
+const int MAX_ROWS = 30;
 const int MAX_COLS = 6;
 
 // ────────────────────────────────────────────────
-// DATA STRUCTURE (used by both team members)
+// DATA STRUCTURE (used by both of us)
 // ────────────────────────────────────────────────
 struct Seat {
     std::string passengerID = "";
     std::string name        = "";
-    std::string classType   = "";   // e.g. "Economy", "Business", "First"
+    std::string classType   = "";   // "Economy", "Business", "First"
     bool        occupied    = false;
 };
 
